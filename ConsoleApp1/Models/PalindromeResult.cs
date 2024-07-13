@@ -1,6 +1,6 @@
 ﻿using System.Collections.Concurrent;
 
-namespace ConsoleApp1
+namespace PalindromeChecker.Models
 {
     public class PalindromeResult
     {
@@ -11,6 +11,13 @@ namespace ConsoleApp1
         public PalindromeResult()
         {
 
+        }
+
+        public PalindromeResult(SortedPalindromeResult sortedPalindromeResult)
+        {
+            ExistingPalindromes = new(sortedPalindromeResult.ExistingPalindromes);
+            NonExistingPalindromes = new(sortedPalindromeResult.NonExistingPalindromes);
+            ShouldTryAgain = new(sortedPalindromeResult.ShouldTryAgain);
         }
     }
 }

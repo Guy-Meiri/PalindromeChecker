@@ -1,4 +1,5 @@
 ﻿using HtmlAgilityPack;
+using PalindromeChecker.Models;
 
 namespace ConsoleApp1
 {
@@ -26,7 +27,7 @@ namespace ConsoleApp1
             CancellationTokenSource cts = new CancellationTokenSource();
             cts.CancelAfter(20000);
 
-            Console.WriteLine($"Checking {id}");
+            //Console.WriteLine($"Checking {id}");
             using (var client = new HttpClient())
             {
                 try
@@ -56,20 +57,18 @@ namespace ConsoleApp1
                             return;
                         }
                     }
-                    Console.WriteLine($"try again for {id}");
+                    Console.WriteLine($"Unrecognized result for {id}. Trying again");
                     result.ShouldTryAgain.Add(id);
                 }
                 catch (Exception ex)
                 {
-
-                    Console.WriteLine(ex.Message);
-                    Console.WriteLine($"Exception for {id}");
+                    Console.WriteLine($"Exception for {id}. Trying again. ex message: {ex.Message}");
                     result.ShouldTryAgain.Add(id);
                     return;
 
                 }
 
-                Console.WriteLine($"Finished checking {id}");
+                //Console.WriteLine($"Finished checking {id}");
             }
         }
     }

@@ -28,7 +28,7 @@ namespace ConsoleApp1
             }
         }
 
-        public async Task<T> ReadFromFileAsync()
+        public async Task<T?> ReadFromFileAsync()
         {
             try
             {

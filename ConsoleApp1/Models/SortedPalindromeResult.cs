@@ -1,6 +1,6 @@
 ﻿using System.Collections.Concurrent;
 
-namespace ConsoleApp1
+namespace PalindromeChecker.Models
 {
     public class SortedPalindromeResult
     {
